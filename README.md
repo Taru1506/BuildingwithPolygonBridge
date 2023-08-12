@@ -10,24 +10,24 @@ The project includes a hardhat script to batch mint all NFTs (employing the ERC7
 ## Getting Started
 ### Installing
 
-*Clone this repository to get an exact copy of this program on your computer by running thee following command.
+* Clone this repository to get an exact copy of this program on your computer by running thee following command.
 ```
 git clone https://github.com/Adesdesk/Building-with-Polygon-Bridge.git
 ```
 
-*Navigate into the repository folder in your preferred command line interface. Using the terminal in VSCode is a good option.
+* Navigate into the repository folder in your preferred command line interface. Using the terminal in VSCode is a good option.
 
 ### Executing program
 
-*Ensure that the terminal now points to the Building-with-Polygon-Bridge folder, then run the following command.
+* Ensure that the terminal now points to the Building-with-Polygon-Bridge folder, then run the following command.
 ```
 yarn install
 ```
-*create a new file named ".env" (quotes not included) and specify each environment variable, naming them just as used throughout the scripts.
+* create a new file named ".env" (quotes not included) and specify each environment variable, naming them just as used throughout the scripts.
 
-*When completed, run the commands below in the same order so as to execute the corresponding scripts accordingly
+* When completed, run the commands below in the same order so as to execute the corresponding scripts accordingly
 
-*Running the "testBalanceOf.js" script as in the 4th command below should be delayed until about 30 minutes after successfully running the "batchTransfer.js" script so as to allow state sync acrross the chains.
+* Running the "testBalanceOf.js" script as in the 4th command below should be delayed until about 30 minutes after successfully running the "batchTransfer.js" script so as to allow state sync acrross the chains.
 ```
 npx hardhat run scripts/deploy.js --network goerli
 npx hardhat run scripts/batchMint.js --network goerli
@@ -37,20 +37,20 @@ npx hardhat run scripts/testBalanceOf.js --network mumbai
 
 ## Help
 
-*You need to have NodeJS installed to your computer in order to run this program locally.
+* You need to have NodeJS installed to your computer in order to run this program locally.
 
-*Ensure to name your environment variables as used in the scripts or you would need to rename those in the scripts to match your own naming preference.
+* Ensure to name your environment variables as used in the scripts or you would need to rename those in the scripts to match your own naming preference.
 
-*This project uses yarn to install its dependencies. If you prefer to use npm, it is recommended to use the following command.
+* This project uses yarn to install its dependencies. If you prefer to use npm, it is recommended to use the following command.
 ```
 npm ci
 ```
 
 ## Tools Used
 
-*Hardhat
+* Hardhat
 
-*Foundry (optionally)
+* Foundry (optionally)
 ## Help
 
 If you encounter any issues or have questions, please feel free to open an issue in this repository.
