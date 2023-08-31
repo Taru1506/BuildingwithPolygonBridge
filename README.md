@@ -1,65 +1,27 @@
-# Building-with-Polygon-Bridge
+# Transferring NFTs from Goerli to Mumbai Testnet
 
-## Description
-This project illustrates execution of an organization's need to move an NFT project from Ethereum to Polygon to increase demand and save on gas.
 
-It features deployment of an NFT collection on the Ethereum blockchain, which is then mapped to Polygon, and corresponding assets transferred over via the Polygon Bridge. To put a twist to the project, the image generation tool - lexica was used to create the images for each NFT in the collection. These images were stored on IPFS using pinata.cloud and the NFT contract includes a "promptDescription" function, which when called, returns the prompt used to generate the respective image for an NFT.
+In this project, we had to create a ERC721 contract to mint and transfer NFTs from Goerli to Mumbai testnet. We have used an AI Image generation tool to generate 5 images which will be used as NFTs.
+&nbsp;
 
-The project includes a hardhat script to batch mint all NFTs (employing the ERC721A standard) and to batch transfer all NFTs from Ethereum to Polygon Mumbai using the FxPortal Bridge specifically. It first approves the NFTs to be transferred, deposits them to the Bridge, and then tests the "balanceOf" on Mumbai when state sync has happened.
+The images has beed stored on an IPFS, which provides a unique ID called CID for each document. Storing images on an IPFS is more efficient and cost efficient as compared to storing the images on the blockchain, as the gas fee is lower.
+&nbsp;
+&nbsp;
 
-## Getting Started
-### Installing
+### Contract Deployment
 
-* Clone this repository to get an exact copy of this program on your computer by running thee following command.
-```
-git clone https://github.com/Adesdesk/Building-with-Polygon-Bridge.git
-```
+ - Run `npx hardhat compile` to compile the solidity files.
+ - Deploy the contract using the following command 
+   &nbsp;
+   
+   `npx hardhat run scripts/deploy.js --network goerli`.
+ - Copy and paste the contract address in the .env file
+ - Run `npx hardhat run scripts/batchMint.js --network goerli` to mint all the NFTs in a single transaction.
+ - Approve and transfer the NFTs using the following command
+    &nbsp;
 
-* Navigate into the repository folder in your preferred command line interface. Using the terminal in VSCode is a good option.
+   `npx hardhat run scripts/approveDeposit.js --network goerli`
 
-### Executing program
+&nbsp;
 
-* Ensure that the terminal now points to the Building-with-Polygon-Bridge folder, then run the following command.
-```
-yarn install
-```
-* create a new file named ".env" (quotes not included) and specify each environment variable, naming them just as used throughout the scripts.
 
-* When completed, run the commands below in the same order so as to execute the corresponding scripts accordingly
-
-* Running the "testBalanceOf.js" script as in the 4th command below should be delayed until about 30 minutes after successfully running the "batchTransfer.js" script so as to allow state sync acrross the chains.
-```
-npx hardhat run scripts/deploy.js --network goerli
-npx hardhat run scripts/batchMint.js --network goerli
-npx hardhat run scripts/batchTransfer.js --network goerli
-npx hardhat run scripts/testBalanceOf.js --network mumbai
-```
-
-## Help
-
-* You need to have NodeJS installed to your computer in order to run this program locally.
-
-* Ensure to name your environment variables as used in the scripts or you would need to rename those in the scripts to match your own naming preference.
-
-* This project uses yarn to install its dependencies. If you prefer to use npm, it is recommended to use the following command.
-```
-npm ci
-```
-
-## Tools Used
-
-* Hardhat
-
-* Foundry (optionally)
-## Help
-
-If you encounter any issues or have questions, please feel free to open an issue in this repository.
-
-## Authors
-
-Tarushi Sandeep Gupta
-tarushigupta03@gmail.com
-
-## License
-
-This project is licensed under the MIT License - see the LICENSE.md file for details.
